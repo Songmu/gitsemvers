@@ -11,6 +11,8 @@ import (
 	"github.com/Masterminds/semver"
 )
 
+const version = "0.0.0"
+
 var verRegStr = `^v?[0-9]+(?:\.[0-9]+){0,2}`
 var extension = `[-0-9A-Za-z]+(?:\.[-0-9A-Za-z]+)*`
 var withPreReleaseRegStr = "(?:-" + extension + ")?"
@@ -54,10 +56,10 @@ func init() {
 
 // Semvers retrieve semvers from git tags
 type Semvers struct {
-	RepoPath          string
-	GitPath           string
-	WithPreRelease    bool
-	WithBuildMetadata bool
+	RepoPath          string `short:"r" long:"repo" default:"." description:"git repository path"`
+	GitPath           string `short:"g" long:"git" default:"git" description:"git path"`
+	WithPreRelease    bool   `short:"P" long:"with-pre-release" description:"display pre-release versions"`
+	WithBuildMetadata bool   `short:"B" long:"with-build-metadata" description:"display build-metadata versions"`
 }
 
 // VersionStrings returns version strings
