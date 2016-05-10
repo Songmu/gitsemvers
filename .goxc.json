@@ -1,0 +1,14 @@
+{
+    "AppName": "git-semvers",
+	"ArtifactsDest": "./dist",
+    "TasksExclude": [
+        "go-vet",
+        "go-test",
+        "go-fmt",
+        "copy-resources",
+        "deb"
+    ],
+	"Arch": "amd64",
+	"Os": "linux darwin freebsd",
+	"ConfigVersion": "0.9"
+}

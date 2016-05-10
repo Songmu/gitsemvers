@@ -11,7 +11,7 @@ import (
 	"github.com/Masterminds/semver"
 )
 
-const version = "0.0.0"
+const version = "0.0.1"
 
 var verRegStr = `^v?[0-9]+(?:\.[0-9]+){0,2}`
 var extension = `[-0-9A-Za-z]+(?:\.[-0-9A-Za-z]+)*`
