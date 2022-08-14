@@ -1,15 +1,15 @@
 gitsemvers
 =======
 
-[![Build Status](https://travis-ci.org/Songmu/gitsemvers.png?branch=master)][travis]
-[![Coverage Status](https://coveralls.io/repos/Songmu/gitsemvers/badge.png?branch=master)][coveralls]
-[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)][license]
-[![GoDoc](https://godoc.org/github.com/Songmu/gitsemvers?status.svg)](godoc)
+[![Test Status](https://github.com/Songmu/gitsemvers/workflows/test/badge.svg?branch=main)][actions]
+[![codecov.io](https://codecov.io/github/Songmu/gitsemvers/coverage.svg?branch=main)][codecov]
+[![MIT License](https://img.shields.io/github/license/Songmu/gitsemvers)][license]
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/Songmu/gitsemvers)][PkgGoDev]
 
-[travis]: https://travis-ci.org/Songmu/gitsemvers
-[coveralls]: https://coveralls.io/r/Songmu/gitsemvers?branch=master
-[license]: https://github.com/Songmu/gitsemvers/blob/master/LICENSE
-[godoc]: https://godoc.org/github.com/Songmu/gitsemvers
+[actions]: https://github.com/Songmu/gitsemvers/actions?workflow=test
+[codecov]: https://codecov.io/github/Songmu/gitsemvers?branch=main
+[license]: https://github.com/Songmu/gitsemvers/blob/main/LICENSE
+[PkgGoDev]: https://pkg.go.dev/github.com/Songmu/gitsemvers
 
 ## Description
 
