@@ -8,10 +8,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/Masterminds/semver"
+	"golang.org/x/mod/semver"
 )
-
-const version = "0.0.1"
 
 var verRegStr = `^v?[0-9]+(?:\.[0-9]+){0,2}`
 var extension = `[-0-9A-Za-z]+(?:\.[-0-9A-Za-z]+)*`
@@ -98,20 +96,38 @@ func (sv *Semvers) gitTags() (string, error) {
 	return b.String(), err
 }
 
+type ver struct {
+	orig, version string
+}
+
 func (sv *Semvers) parseVersions(out string) []string {
 	rawTags := strings.Split(out, "\n")
-	var versions []*semver.Version
+	var vers []*ver
 	for _, tag := range rawTags {
-		t := strings.TrimSpace(tag)
-		if sv.reg().MatchString(t) {
-			v, _ := semver.NewVersion(t)
-			versions = append(versions, v)
+		tag = strings.TrimSpace(tag)
+		semv := tag
+		if semv != "" && semv[0] != 'v' {
+			semv = "v" + semv
+		}
+		v := &ver{tag, semv}
+		if semver.IsValid(semv) {
+			hasBuild := semver.Build(semv) != ""
+			isPrerelease := semver.Prerelease(semv) != ""
+			if hasBuild && !sv.WithBuildMetadata {
+				continue
+			}
+			if isPrerelease && !sv.WithPreRelease {
+				continue
+			}
+			vers = append(vers, v)
 		}
 	}
-	sort.Sort(sort.Reverse(semver.Collection(versions)))
-	var vers = make([]string, len(versions))
-	for i, v := range versions {
-		vers[i] = v.Original()
+	sort.Slice(vers, func(i, j int) bool {
+		return semver.Compare(vers[i].version, vers[j].version) > 0
+	})
+	ret := make([]string, len(vers))
+	for i, v := range vers {
+		ret[i] = v.orig
 	}
-	return vers
+	return ret
 }
