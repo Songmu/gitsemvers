@@ -9,7 +9,7 @@ deps:
 	go mod tidy
 
 .PHONY: devel-deps
-devel-deps: build
+devel-deps:
 	go install github.com/Songmu/godzil/cmd/godzil@latest
 	go install github.com/tcnksm/ghr@latest
 
