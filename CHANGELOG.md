@@ -1,5 +1,9 @@
 # Changelog
 
+## [v0.0.3](https://github.com/Songmu/gitsemvers/compare/v0.0.2...v0.0.3) - 2022-08-27
+- introduce rcpr by @Songmu in https://github.com/Songmu/gitsemvers/pull/4
+- update releng by @Songmu in https://github.com/Songmu/gitsemvers/pull/6
+
 ## [v0.0.2](https://github.com/Songmu/gitsemvers/compare/v0.0.1...v0.0.2) (2022-08-15)
 
 * use golang.org/x/mod/semver instead of MasterMinds/semver [#3](https://github.com/Songmu/gitsemvers/pull/3) ([Songmu](https://github.com/Songmu))
