@@ -11,6 +11,6 @@ jobs:
       uses: actions/checkout@v3
       with:
         token: ${{ secrets.GH_PAT }}
-    - uses: Songmu/rcpr@v3
+    - uses: Songmu/rcpr@main
       env:
         GITHUB_TOKEN: ${{ secrets.GH_PAT }}
