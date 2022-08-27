@@ -1,0 +1,16 @@
+name: rcpr
+on:
+  push:
+    branches:
+    - main
+jobs:
+  rcpr:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.GH_PAT }}
+    - uses: Songmu/rcpr@v3
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_PAT }}
