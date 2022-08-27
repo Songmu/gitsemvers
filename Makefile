@@ -1,4 +1,4 @@
-VERSION = $(shell ./godzil show-version)
+VERSION = $(shell godzil show-version)
 CURRENT_REVISION = $(shell git rev-parse --short HEAD)
 BUILD_LDFLAGS = "-s -w -X github.com/Songmu/gitsemvers.revision=$(CURRENT_REVISION)"
 u := $(if $(update),-u)
@@ -11,7 +11,6 @@ deps:
 .PHONY: devel-deps
 devel-deps:
 	go install github.com/Songmu/godzil/cmd/godzil@latest
-	go install github.com/tcnksm/ghr@latest
 
 .PHONY: test
 test:
@@ -34,9 +33,6 @@ CREDITS: deps devel-deps go.sum
 
 .PHONY: crossbuild
 crossbuild: CREDITS
+	rm -rf dist
 	godzil crossbuild -pv=v$(VERSION) -build-ldflags=$(BUILD_LDFLAGS) \
-      -os=linux,darwin,windows -d=./dist/v$(VERSION) ./cmd/*
-
-.PHONY: upload
-upload:
-	ghr -body="$$(godzil changelog --latest -F markdown)" v$(VERSION) dist/v$(VERSION)
+      -os=linux,darwin,windows -d=./dist ./cmd/*
