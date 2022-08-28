@@ -1,5 +1,8 @@
 # Changelog
 
+## [v0.0.4](https://github.com/Songmu/gitsemvers/compare/v0.0.3...v0.0.4) - 2022-08-28
+- s/rcpr/tagpr/ by @Songmu in https://github.com/Songmu/gitsemvers/pull/7
+
 ## [v0.0.3](https://github.com/Songmu/gitsemvers/compare/v0.0.2...v0.0.3) - 2022-08-27
 - introduce rcpr by @Songmu in https://github.com/Songmu/gitsemvers/pull/4
 - update releng by @Songmu in https://github.com/Songmu/gitsemvers/pull/6
