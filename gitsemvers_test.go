@@ -78,6 +78,56 @@ func TestParseVersionsWithAllExtensions(t *testing.T) {
 	}
 }
 
+func TestParseVersionsWithTagPrefix(t *testing.T) {
+	input := "tools/v1.1.0\ntools/v1.0.0\nother/v2.0.0\nv3.0.0\ninvalid"
+	sv := &Semvers{TagPrefix: "tools"}
+	got := sv.parseVersions(input)
+	want := []string{"tools/v1.1.0", "tools/v1.0.0"}
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("got %v, want %v", got, want)
+	}
+}
+
+func TestParseVersionsWithTagPrefixTrailingSlash(t *testing.T) {
+	input := "tools/v1.0.0\ntools/v0.9.0"
+	sv := &Semvers{TagPrefix: "tools/"}
+	got := sv.parseVersions(input)
+	want := []string{"tools/v1.0.0", "tools/v0.9.0"}
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("got %v, want %v", got, want)
+	}
+}
+
+func TestParseVersionsWithNestedTagPrefix(t *testing.T) {
+	input := "tools/cli/v1.0.0\ntools/cli/v0.9.0\ntools/v1.0.0"
+	sv := &Semvers{TagPrefix: "tools/cli"}
+	got := sv.parseVersions(input)
+	want := []string{"tools/cli/v1.0.0", "tools/cli/v0.9.0"}
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("got %v, want %v", got, want)
+	}
+}
+
+func TestParseVersionsWithTagPrefixAndPreRelease(t *testing.T) {
+	input := "tools/v1.0.0\ntools/v1.0.0-beta\ntools/v0.9.0"
+	sv := &Semvers{TagPrefix: "tools", WithPreRelease: true}
+	got := sv.parseVersions(input)
+	want := []string{"tools/v1.0.0", "tools/v1.0.0-beta", "tools/v0.9.0"}
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("got %v, want %v", got, want)
+	}
+}
+
+func TestParseVersionsWithTagPrefixNoVPrefix(t *testing.T) {
+	input := "tools/1.0.0\ntools/0.9.0"
+	sv := &Semvers{TagPrefix: "tools"}
+	got := sv.parseVersions(input)
+	want := []string{"tools/1.0.0", "tools/0.9.0"}
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("got %v, want %v", got, want)
+	}
+}
+
 func TestVersionStrings(t *testing.T) {
 	gm, err := gitmock.New("")
 	if err != nil {

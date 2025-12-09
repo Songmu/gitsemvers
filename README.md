@@ -22,6 +22,18 @@ sv := &gitsemvers.Semvers{RepoPath: "path/to/repo"}
 semvers := sv.VersionStrings()
 ```
 
+### Monorepo Support
+
+For monorepo projects with prefixed tags (e.g., `tools/v1.0.0`):
+
+```go
+sv := &gitsemvers.Semvers{
+    RepoPath:  "path/to/repo",
+    TagPrefix: "tools",
+}
+semvers := sv.VersionStrings() // returns ["tools/v1.1.0", "tools/v1.0.0", ...]
+```
+
 ## Command Line Tool
 
     % go get github.com/Songmu/gitsemvers/cmd/git-semvers

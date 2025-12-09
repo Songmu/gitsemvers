@@ -58,6 +58,7 @@ type Semvers struct {
 	GitPath           string `short:"g" long:"git" default:"git" description:"git path"`
 	WithPreRelease    bool   `short:"P" long:"with-pre-release" description:"display pre-release versions"`
 	WithBuildMetadata bool   `short:"B" long:"with-build-metadata" description:"display build-metadata versions"`
+	TagPrefix         string `short:"p" long:"prefix" description:"tag prefix for monorepo (e.g., 'tools' for 'tools/v1.0.0')"`
 }
 
 // VersionStrings returns version strings
@@ -103,9 +104,32 @@ type ver struct {
 func (sv *Semvers) parseVersions(out string) []string {
 	rawTags := strings.Split(out, "\n")
 	var vers []*ver
+
+	// Compute prefix once outside the loop
+	var prefix string
+	if sv.TagPrefix != "" {
+		prefix = strings.TrimSuffix(sv.TagPrefix, "/") + "/"
+	}
+
 	for _, tag := range rawTags {
 		tag = strings.TrimSpace(tag)
-		semv := tag
+		if tag == "" {
+			continue
+		}
+
+		// Handle tag prefix for monorepo support
+		semvPart := tag
+		if prefix != "" {
+			if !strings.HasPrefix(tag, prefix) {
+				continue
+			}
+			semvPart = strings.TrimPrefix(tag, prefix)
+			if semvPart == "" {
+				continue
+			}
+		}
+
+		semv := semvPart
 		if semv != "" && semv[0] != 'v' {
 			semv = "v" + semv
 		}
