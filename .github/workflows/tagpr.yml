@@ -11,6 +11,7 @@ jobs:
       uses: actions/checkout@v6
       with:
         token: ${{ secrets.GH_PAT }}
-    - uses: Songmu/tagpr@main
+        persist-credentials: false
+    - uses: Songmu/tagpr@1.10.0
       env:
         GITHUB_TOKEN: ${{ secrets.GH_PAT }}
