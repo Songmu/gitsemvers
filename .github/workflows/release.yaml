@@ -7,20 +7,8 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-    - name: setup go
-      uses: actions/setup-go@v6
-      with:
-        go-version: 1.x
     - name: checkout
-      uses: actions/checkout@v6
-    - name: release
-      env:
-        GITHUB_TOKEN: ${{ secrets.github_token }}
-      run: |
-        make crossbuild
-    - name: upload
-      uses: softprops/action-gh-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: actions/checkout@v5
+    - uses: ./.github/actions/release
       with:
-        files: dist/*
+        token: ${{ secrets.GITHUB_TOKEN }}

@@ -11,6 +11,7 @@ deps:
 .PHONY: devel-deps
 devel-deps:
 	go install github.com/Songmu/godzil/cmd/godzil@latest
+	go install github.com/tcnksm/ghr@latest
 
 .PHONY: test
 test:
@@ -36,3 +37,7 @@ crossbuild: CREDITS
 	rm -rf dist
 	godzil crossbuild -pv=v$(VERSION) -build-ldflags=$(BUILD_LDFLAGS) \
       -os=linux,darwin,windows -d=./dist ./cmd/*
+
+.PHONY: upload
+upload:
+	ghr v$(VERSION) dist/v$(VERSION)
