@@ -24,7 +24,7 @@ jobs:
       id: tagpr
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - uses: .github/actions/release
+    - uses: ./.github/actions/release
       with:
         tag: ${{ steps.tagpr.outputs.tag }}
         token: ${{ secrets.GITHUB_TOKEN }}
