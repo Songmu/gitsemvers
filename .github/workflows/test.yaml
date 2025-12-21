@@ -2,10 +2,16 @@ name: test
 on:
   push:
     branches:
-    - "**"
+    - "main"
+  pull_request:
+
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
     strategy:
       fail-fast: false
       matrix:
