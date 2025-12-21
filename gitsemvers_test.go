@@ -1,8 +1,6 @@
 package gitsemvers
 
 import (
-	"bytes"
-	"io/ioutil"
 	"os"
 	"reflect"
 	"testing"
@@ -194,40 +192,6 @@ func TestVersionStrings(t *testing.T) {
 		}
 		if !reflect.DeepEqual(sv.VersionStrings(), expect) {
 			t.Errorf("something went wrong %+v", sv.VersionStrings())
-		}
-	}
-}
-
-func TestCLI(t *testing.T) {
-	gm, err := gitmock.New("")
-	if err != nil {
-		t.Fatal(err)
-	}
-	repoPath := gm.RepoPath()
-	defer os.RemoveAll(repoPath)
-	gm.Init()
-	gm.Commit("--allow-empty", "-m", "initial commit")
-	gm.Tag("0.0.1")
-	gm.Tag("v0.0.2")
-	gm.Tag("v0.0.2-pre")
-	gm.Tag("v0.0.2-pre+win")
-	gm.Tag("v0.0.2+win")
-	gm.Tag("v0.0.2+win+invalid")
-
-	{
-		var b bytes.Buffer
-		cli := CLI{OutStream: &b, ErrStream: ioutil.Discard}
-
-		ret := cli.Run([]string{"--hoge"})
-		if ret != exitCodeParseFlagErr {
-			t.Errorf("exit code should be exitCodeParseFlagErr but: %d", ret)
-		}
-
-		cli.Run([]string{"--repo", repoPath})
-		expect := "v0.0.2\n0.0.1\n"
-		output := b.String()
-		if output != expect {
-			t.Errorf("expect: %s, but: %s", expect, output)
 		}
 	}
 }

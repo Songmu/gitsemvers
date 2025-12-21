@@ -54,11 +54,11 @@ func init() {
 
 // Semvers retrieve semvers from git tags
 type Semvers struct {
-	RepoPath          string `short:"r" long:"repo" default:"." description:"git repository path"`
-	GitPath           string `short:"g" long:"git" default:"git" description:"git path"`
-	WithPreRelease    bool   `short:"P" long:"with-pre-release" description:"display pre-release versions"`
-	WithBuildMetadata bool   `short:"B" long:"with-build-metadata" description:"display build-metadata versions"`
-	TagPrefix         string `short:"p" long:"prefix" description:"tag prefix for monorepo (e.g., 'tools' for 'tools/v1.0.0')"`
+	RepoPath          string
+	GitPath           string
+	WithPreRelease    bool
+	WithBuildMetadata bool
+	TagPrefix         string
 }
 
 // VersionStrings returns version strings
