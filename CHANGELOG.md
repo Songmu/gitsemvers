@@ -1,5 +1,9 @@
 # Changelog
 
+## [v0.1.1](https://github.com/Songmu/gitsemvers/compare/v0.1.0...v0.1.1) - 2026-01-13
+- Bump golang.org/x/mod from 0.31.0 to 0.32.0 by @dependabot[bot] in https://github.com/Songmu/gitsemvers/pull/21
+- Bump Songmu/tagpr from 1.10.0 to 1.11.0 by @dependabot[bot] in https://github.com/Songmu/gitsemvers/pull/22
+
 ## [v0.1.0](https://github.com/Songmu/gitsemvers/compare/v0.0.3...v0.1.0) - 2025-12-21
 - s/rcpr/tagpr/ by @Songmu in https://github.com/Songmu/gitsemvers/pull/7
 - feat: add TagPrefix support for monorepo by @biosugar0 in https://github.com/Songmu/gitsemvers/pull/10
