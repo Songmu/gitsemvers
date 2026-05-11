@@ -1,5 +1,19 @@
 # Changelog
 
+## [v0.1.1](https://github.com/Songmu/gitsemvers/compare/v0.1.0...v0.1.1) - 2026-05-11
+- Bump golang.org/x/mod from 0.31.0 to 0.32.0 by @dependabot[bot] in https://github.com/Songmu/gitsemvers/pull/21
+- Bump Songmu/tagpr from 1.10.0 to 1.11.0 by @dependabot[bot] in https://github.com/Songmu/gitsemvers/pull/22
+- Bump Songmu/tagpr from 1.11.0 to 1.12.1 by @dependabot[bot] in https://github.com/Songmu/gitsemvers/pull/26
+- Bump actions/checkout from 6.0.1 to 6.0.2 by @dependabot[bot] in https://github.com/Songmu/gitsemvers/pull/25
+- Bump actions/setup-go from 6.1.0 to 6.2.0 by @dependabot[bot] in https://github.com/Songmu/gitsemvers/pull/24
+- Bump Songmu/tagpr from 1.12.1 to 1.17.1 by @dependabot[bot] in https://github.com/Songmu/gitsemvers/pull/31
+- Bump actions/setup-go from 6.2.0 to 6.3.0 by @dependabot[bot] in https://github.com/Songmu/gitsemvers/pull/32
+- Bump golang.org/x/mod from 0.32.0 to 0.34.0 by @dependabot[bot] in https://github.com/Songmu/gitsemvers/pull/33
+- Bump codecov/codecov-action from 5.5.2 to 6.0.0 by @dependabot[bot] in https://github.com/Songmu/gitsemvers/pull/35
+- Bump actions/setup-go from 6.3.0 to 6.4.0 by @dependabot[bot] in https://github.com/Songmu/gitsemvers/pull/36
+- Bump Songmu/tagpr from 1.17.1 to 1.19.0 by @dependabot[bot] in https://github.com/Songmu/gitsemvers/pull/40
+- Bump golang.org/x/mod from 0.34.0 to 0.36.0 by @dependabot[bot] in https://github.com/Songmu/gitsemvers/pull/41
+
 ## [v0.1.0](https://github.com/Songmu/gitsemvers/compare/v0.0.3...v0.1.0) - 2025-12-21
 - s/rcpr/tagpr/ by @Songmu in https://github.com/Songmu/gitsemvers/pull/7
 - feat: add TagPrefix support for monorepo by @biosugar0 in https://github.com/Songmu/gitsemvers/pull/10
