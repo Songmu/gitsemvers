@@ -1,4 +1,4 @@
 github.com/Songmu/gitmock v0.0.2 h1:KF5GTll60LxGskZbt58QDd29y/GYLgdxqvkvnSU6RlY=
 github.com/Songmu/gitmock v0.0.2/go.mod h1:/ILc8CtPydh2MJ8toKCOB1opd2HCaU/6RWJjg7lmSvs=
-golang.org/x/mod v0.36.0 h1:JJjpVx6myfUsUdAzZuOSTTmRE0PfZeNWzzvKrP7amb4=
-golang.org/x/mod v0.36.0/go.mod h1:moc6ELqsWcOw5Ef3xVprK5ul/MvtVvkIXLziUOICjUQ=
+golang.org/x/mod v0.38.0 h1:MECBjubtXD7yj4HrhIUcywNaGeNVUdfVnxmPajOk4yk=
+golang.org/x/mod v0.38.0/go.mod h1:V6Xz0pq8TQ3dGqVQ1FVHuelZpAL0uNhSkk9ogYP3c40=
